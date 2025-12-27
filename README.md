@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://www.umaia.pt/it/PublishingImages/Logos/logo_umaia.png" alt="Logo uMaia" width="200">
+  <img src="https://www.umaia.pt/SiteCollectionImages/logo_ismai_site_social.png" alt="Logo uMaia" width="200">
 </p>
 
 # **Tópicos Avançados de Computação**
