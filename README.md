@@ -18,3 +18,20 @@ Ambiente Acústico (Fator de Foco): Mede a pressão sonora média (dB) para dete
 
 Luminosidade (Fator Ergonómico): Monitoriza os níveis de Lux para garantir que a iluminação é adequada à tarefa realizada, evitando a fadiga ocular e aumentando o alerta natural do utilizador.
 
+### Objetivos do Projeto
+
+Gestão Proativa: Permitir que gestores de facilities ajustem a ventilação ou o AC antes que a equipa comece a sentir fadiga.
+
+Otimização de Espaços: Identificar zonas "mortas" ou desconfortáveis no escritório que precisam de intervenção.
+
+Transparência: Mostrar aos colaboradores que a empresa se preocupa com a saúde e o rendimento ambiental do seu posto de trabalho.
+
+### Dashboard
+#### índice de visualização através de um sistema de cores
+
+🟢 90-100 (Excelente): Condições ideais para trabalho focado.
+
+🟡 70-89 (Atenção): Pequenos desconfortos detetados; produtividade pode baixar.
+
+🔴 < 70 (Crítico): Ambiente propício à fadiga extrema ou irritabilidade.
+
