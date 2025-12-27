@@ -1,4 +1,6 @@
-![UMAIA|Logo](/galeria/umaia.png)
+<p align="center">
+  <img src="https://www.umaia.pt/it/PublishingImages/Logos/logo_umaia.png" alt="Logo uMaia" width="200">
+</p>
 
 # **Tópicos Avançados de Computação**
 ## FLOW INDEX
