@@ -31,11 +31,11 @@ Transparência: Mostrar aos colaboradores que a empresa se preocupa com a saúde
 ### Dashboard
 #### índice de visualização através de um sistema de cores
 
-🟢 90-100 (Excelente): Condições ideais para trabalho focado.
+🟢 75-100 (Excelente): Condições ideais para trabalho focado.
 
-🟡 70-89 (Atenção): Pequenos desconfortos detetados; produtividade pode baixar.
+🟡 55-74 (Atenção): Pequenos desconfortos detetados; produtividade pode baixar.
 
-🔴 < 70 (Crítico): Ambiente propício à fadiga extrema ou irritabilidade.
+🔴 < 55 (Crítico): Ambiente propício à fadiga extrema ou irritabilidade.
 
 #### Equipa
 
