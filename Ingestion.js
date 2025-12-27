@@ -145,6 +145,7 @@ async function runIngestion() {
         const noise = raw.ics43434DbAvg ?? null;
         const temp = raw.si7021Temp ?? null;
         const humidity = raw.si7021Humidity ?? null;
+        const light = raw.veml3328Lux ?? null;
         const discomfortIndex = item.discomfortIndex ?? null;
 
         const flowIndex = computeFlowIndex({
@@ -166,6 +167,7 @@ async function runIngestion() {
           ruido_avg: noise,
           temp_ar: temp,
           humidade: humidity,
+          light_lux: light,
           pmv: discomfortIndex,
           flow_index: flowIndex,
           alerta_status: alertStatus,

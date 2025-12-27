@@ -111,6 +111,17 @@
   color: var(--ink-500);
 }
 
+.zone-thumb {
+  width: 100%;
+  max-width: 180px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  display: block;
+  box-shadow: var(--shadow-tight);
+}
+
 .score-badge {
   min-width: 56px;
   padding: 10px 14px;
@@ -203,19 +214,143 @@
   padding: 16px;
   border-radius: 16px;
   background: linear-gradient(135deg, rgba(17, 48, 65, 0.08), rgba(255, 255, 255, 0.85));
+  display: grid;
+  gap: 16px;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--ink-600);
+  margin-bottom: 10px;
+}
+
+.chart-area {
+  position: relative;
+}
+
+.legend {
+  border: 1px solid transparent;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.legend.active {
+  border-color: var(--accent);
+  background: #fff4e7;
+}
+
+.legend::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--ink-500);
+}
+
+.legend.flow::before {
+  background: #a65520;
+}
+
+.legend.co2::before {
+  background: #2f6f8f;
+}
+
+.legend.noise::before {
+  background: #6b5e99;
+}
+
+.legend.temp::before {
+  background: #1f7a5a;
+}
+
+.legend.light::before {
+  background: #d3a72c;
 }
 
 .chart {
   width: 100%;
-  height: 160px;
+  height: 240px;
   fill: none;
-  stroke: var(--accent-strong);
-  stroke-width: 2.5;
+}
+
+.band-good {
+  fill: rgba(140, 196, 104, 0.12);
+}
+
+.band-warn {
+  fill: rgba(255, 200, 87, 0.15);
+}
+
+.band-bad {
+  fill: rgba(196, 76, 63, 0.12);
+}
+
+.line-flow {
+  fill: none;
+  stroke: #a65520;
+  stroke-width: 0.5;
+}
+
+.line-co2 {
+  fill: none;
+  stroke: #2f6f8f;
+  stroke-width: 0.5;
+}
+
+.line-noise {
+  fill: none;
+  stroke: #6b5e99;
+  stroke-width: 0.5;
+}
+
+.line-temp {
+  fill: none;
+  stroke: #1f7a5a;
+  stroke-width: 0.5;
+}
+
+.line-light {
+  fill: none;
+  stroke: #d3a72c;
+  stroke-width: 0.5;
 }
 
 .chart-empty {
   color: var(--ink-500);
   font-size: 0.9rem;
+}
+
+.chart-tooltip {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: var(--shadow-tight);
+  font-size: 0.85rem;
+  min-width: 180px;
+}
+
+.chart-limits {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: var(--shadow-tight);
+  font-size: 0.85rem;
+}
+
+.limit-block {
+  margin-top: 10px;
 }
 
 .spotlight {
@@ -254,6 +389,13 @@
 
 .actions li {
   margin-bottom: 6px;
+}
+
+.zone-actions {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fdf8f1;
+  margin-top: 12px;
 }
 
 .error {

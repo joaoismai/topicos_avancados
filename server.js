@@ -58,6 +58,7 @@ app.get('/api/realtime', async (req, res) => {
                 co2_eq,
                 ruido_avg,
                 temp_ar,
+                light_lux,
                 pmv,
                 timestamp,
                 nome,
@@ -71,6 +72,7 @@ app.get('/api/realtime', async (req, res) => {
                     l.co2_eq,
                     l.ruido_avg,
                     l.temp_ar,
+                    l.light_lux,
                     l.pmv,
                     l.timestamp,
                     s.nome,
@@ -107,6 +109,7 @@ app.get('/api/realtime', async (req, res) => {
             co2_eq: item.co2_eq,
             ruido_avg: item.ruido_avg,
             temp_ar: item.temp_ar,
+            light_lux: item.light_lux,
             pmv: item.pmv,
             latitude: item.latitude,
             longitude: item.longitude,
@@ -146,6 +149,8 @@ app.get('/api/history/:sensorId', async (req, res) => {
                 'flow_index',
                 'co2_eq',
                 'ruido_avg',
+                'temp_ar',
+                'light_lux',
                 'pmv'
             ]
         });

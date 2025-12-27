@@ -44,6 +44,7 @@ const Leitura = sequelize.define(
     ruido_avg: { type: DataTypes.FLOAT, allowNull: true },
     temp_ar: { type: DataTypes.FLOAT, allowNull: true },
     humidade: { type: DataTypes.FLOAT, allowNull: true },
+    light_lux: { type: DataTypes.FLOAT, allowNull: true },
     pmv: { type: DataTypes.FLOAT, allowNull: true },
     flow_index: { type: DataTypes.FLOAT, allowNull: true },
     alerta_status: { type: DataTypes.STRING(64), allowNull: true },
