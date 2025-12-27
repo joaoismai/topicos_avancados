@@ -35,3 +35,10 @@ Transparência: Mostrar aos colaboradores que a empresa se preocupa com a saúde
 
 🔴 < 70 (Crítico): Ambiente propício à fadiga extrema ou irritabilidade.
 
+#### Equipa
+
+António Oliveira a044409@umaia.pt
+
+João Gomes a045235@umaia.pt
+
+
