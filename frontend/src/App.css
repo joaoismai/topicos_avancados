@@ -223,9 +223,37 @@
 }
 
 .spotlight-card {
+  width: 100%;
+  border: none;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  gap: 16px;
+}
+
+.spotlight-card.expanded .score-badge {
+  transform: scale(1.05);
+}
+
+.actions {
+  margin-top: 16px;
+  background: #f8efe2;
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.actions ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: var(--ink-700);
+}
+
+.actions li {
+  margin-bottom: 6px;
 }
 
 .error {

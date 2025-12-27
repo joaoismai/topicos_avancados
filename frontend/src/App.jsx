@@ -52,6 +52,7 @@ function App() {
   const [loadingRealtime, setLoadingRealtime] = useState(false);
   const [loadingHistory, setLoadingHistory] = useState(false);
   const [error, setError] = useState(null);
+  const [showActions, setShowActions] = useState(false);
 
   const sensors = realtime?.data || [];
   const zoneMap = {
@@ -76,6 +77,32 @@ function App() {
       return sensor.flow_index < worst.flow_index ? sensor : worst;
     }, null);
   }, [filteredSensors]);
+
+  const actions = useMemo(() => {
+    if (!worstSensor) return [];
+    const items = [];
+
+    if ((worstSensor.co2_eq ?? 0) >= 1000) {
+      items.push('Abrir janelas ou aumentar a ventilacao durante 10 a 15 minutos.');
+      items.push('Verificar se o sistema de renovacao de ar esta ativo.');
+    }
+    if ((worstSensor.ruido_avg ?? 0) >= 60) {
+      items.push('Identificar a fonte de ruido e reduzir conversas na zona.');
+      items.push('Sugerir uso de salas fechadas para chamadas longas.');
+    }
+    if ((worstSensor.temp_ar ?? 0) >= 26) {
+      items.push('Reduzir 1 a 2°C no AC ou reforcar ventilacao.');
+    }
+    if ((worstSensor.temp_ar ?? 0) <= 18) {
+      items.push('Aumentar 1 a 2°C no AC ou reduzir correntes de ar.');
+    }
+
+    if (!items.length) {
+      items.push('Ambiente controlado. Manter a monitorizacao ativa.');
+    }
+
+    return items;
+  }, [worstSensor]);
 
   useEffect(() => {
     let timer;
@@ -237,7 +264,11 @@ function App() {
             <span className="hint">Prioridade atual</span>
           </div>
           {worstSensor ? (
-            <div className="spotlight-card">
+            <button
+              type="button"
+              className={`spotlight-card ${showActions ? 'expanded' : ''}`}
+              onClick={() => setShowActions((prev) => !prev)}
+            >
               <div>
                 <p className="label">Zona critica</p>
                 <p className="value strong">{worstSensor.nome}</p>
@@ -246,9 +277,19 @@ function App() {
               <div className={`score-badge ${flowColor(worstSensor.flow_index)}`}>
                 {worstSensor.flow_index ?? '—'}
               </div>
-            </div>
+            </button>
           ) : (
             <p className="empty">Sem dados para destacar.</p>
+          )}
+          {worstSensor && showActions && (
+            <div className="actions">
+              <p className="label">Acoes corretivas sugeridas</p>
+              <ul>
+                {actions.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           )}
         </section>
       </main>
