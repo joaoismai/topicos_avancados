@@ -71,6 +71,10 @@ npm run dev
 - `db/sequelize.js` - modelos Sequelize e ligacao a MySQL
 - `frontend/` - dashboard React
 
+## Equipa
+- A044409 - António Oliveira
+- A045235 - João Gomes
+
 ## Notas
 - A ingestao corre uma vez no arranque e depois a cada 10 minutos.
 - O Sequelize faz `sync` com `alter: true` para manter a base de dados atualizada.
