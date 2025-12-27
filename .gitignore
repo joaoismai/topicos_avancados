@@ -1,0 +1,10 @@
+# Node modules
+/node_modules
+
+# Variáveis de ambiente sensíveis
+.env
+
+# Logs e builds
+/build
+/dist
+npm-debug.log
