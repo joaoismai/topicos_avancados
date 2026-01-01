@@ -17,7 +17,7 @@ calcula o Flow Index e disponibiliza uma API consumida por um dashboard web.
 
 ## Requisitos
 - Node.js 18+
-- MySQL
+- MySQL 8+
 
 ## Instalacao
 ```bash
@@ -34,12 +34,12 @@ Crie os ficheiros `.env` com as variaveis necessarias.
 PORT=3000
 DB_HOST=localhost
 DB_PORT=3306
-DB_NAME=topicos_avancados
+DB_NAME=flowindex_db
 DB_USER=root
-DB_PASSWORD=senha
-API_BASE_URL=https://api.exemplo.com
-API_EMAIL=utilizador@exemplo.com
-API_PASSWORD=senha_api
+DB_PASSWORD=coloque_a_sua_password
+API_BASE_URL=http://sensorblock.humanexperience.pt:3333/api
+API_EMAIL=lgseco@umaia.pt
+API_PASSWORD=TAC-2526;
 ```
 
 ### Frontend (`frontend/.env`)
@@ -69,11 +69,12 @@ npm run dev
 - `server.js` - API e agendamento da ingestao
 - `Ingestion.js` - login na API externa, leitura e calculo do Flow Index
 - `db/sequelize.js` - modelos Sequelize e ligacao a MySQL
+- `db/schema.sql` - esquema base da BD (opcional)
 - `frontend/` - dashboard React
 
 ## Equipa
-- A044409 - António Oliveira
-- A045235 - João Gomes
+- A044409 - Antonio Oliveira
+- A045235 - Joao Gomes
 
 ## Notas
 - A ingestao corre uma vez no arranque e depois a cada 10 minutos.

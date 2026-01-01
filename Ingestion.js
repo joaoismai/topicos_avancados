@@ -29,16 +29,31 @@ function scoreComfortTemp(temp) {
   return 100 * (1 - normalized);
 }
 
-function computeFlowIndex({ co2, noise, temp }) {
+function scoreLight(lux) {
+  if (lux === null || lux === undefined || Number.isNaN(lux)) {
+    return 100;
+  }
+  const clamped = clamp(lux, 100, 1200);
+  const delta = Math.abs(clamped - 400);
+  const normalized = clamp(delta / 600, 0, 1);
+  return 100 * (1 - normalized);
+}
+
+function computeFlowIndex({ co2, noise, temp, light }) {
   const co2Score = scoreLowerIsBetter(co2, 400, 1500);
   const noiseScore = scoreLowerIsBetter(noise, 30, 70);
   const thermalScore = scoreComfortTemp(temp);
+  const lightScore = scoreLight(light);
 
-  const flowIndex = (0.4 * co2Score) + (0.3 * noiseScore) + (0.3 * thermalScore);
+  const flowIndex =
+    (0.35 * co2Score) +
+    (0.25 * noiseScore) +
+    (0.25 * thermalScore) +
+    (0.15 * lightScore);
   return Math.round(flowIndex);
 }
 
-function computeAlertStatus({ co2, noise, temp }) {
+function computeAlertStatus({ co2, noise, temp, light }) {
   const alerts = [];
 
   if (co2 >= 1000) {
@@ -49,6 +64,9 @@ function computeAlertStatus({ co2, noise, temp }) {
   }
   if (temp >= 26 || temp <= 18) {
     alerts.push('THERMAL');
+  }
+  if (light >= 1000 || (light > 0 && light <= 200)) {
+    alerts.push('LIGHT');
   }
 
   if (alerts.length === 0) {
@@ -152,12 +170,14 @@ async function runIngestion() {
           co2,
           noise,
           temp,
+          light,
         });
 
         const alertStatus = computeAlertStatus({
           co2,
           noise,
           temp,
+          light,
         });
 
         return {
